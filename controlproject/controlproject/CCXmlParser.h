@@ -10,4 +10,7 @@
 
 @interface CCXmlParser : NSObject
 
+
+- (NSString *) makeXmlFromCoreData : (NSArray *) data;
+
 @end
