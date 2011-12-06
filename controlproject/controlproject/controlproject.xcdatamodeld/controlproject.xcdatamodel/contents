@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11A511" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Change" representedClassName="Change">
+        <attribute name="didit" optional="YES" attributeType="Boolean"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" indexed="YES"/>
+        <attribute name="openDt" optional="YES" attributeType="Date"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="changes" inverseEntity="Task"/>
+    </entity>
+    <entity name="Project" representedClassName="Project">
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" indexed="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Task" inverseName="project" inverseEntity="Task"/>
+    </entity>
+    <entity name="Task" representedClassName="Task">
+        <attribute name="cert" optional="YES" attributeType="Boolean"/>
+        <attribute name="closeDt" optional="YES" attributeType="Date"/>
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="dev" optional="YES" attributeType="Boolean"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" indexed="YES"/>
+        <attribute name="openDt" optional="YES" attributeType="Date"/>
+        <attribute name="reles" optional="YES" attributeType="Boolean"/>
+        <attribute name="state" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="svn" optional="YES" attributeType="Boolean"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="changes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Change" inverseName="task" inverseEntity="Change"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="tasks" inverseEntity="Project"/>
+    </entity>
+    <fetchRequest name="FetchProjects" entity="Project"/>
+    <elements>
+        <element name="Change" positionX="331" positionY="198" width="128" height="120"/>
+        <element name="Project" positionX="-126" positionY="207" width="128" height="90"/>
+        <element name="Task" positionX="108" positionY="117" width="128" height="225"/>
+    </elements>
+</model>
