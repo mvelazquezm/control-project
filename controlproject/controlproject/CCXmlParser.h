@@ -13,4 +13,6 @@
 
 - (NSString *) makeXmlFromCoreData : (NSArray *) data;
 
+- (NSString *) makeXmlFromCoreData : (NSManagedObjectContext *) context fetch : (NSFetchRequest *) request;
+
 @end
